@@ -3234,7 +3234,7 @@ function Sprite(pInst, _x, _y, _w, _h) {
         others = target;
       }
     } else {
-      throw('Error: overlap can only be checked between sprites or groups');
+      //throw('Error: overlap can only be checked between sprites or groups');
     }
 
     var result = false;
