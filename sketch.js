@@ -50,12 +50,18 @@ alien1.velocityX=-4
 alien1.velocityY=1
 alien1.scale=0.1
 
+alien4=createSprite(displayWidth,90)
+alien4.addImage("alienImg",alienimg)
+alien4.velocityX=-3
+alien4.velocityY=1
+alien4.scale=0.1
+
 
 
 alien2=createSprite(displayWidth,100)
 alien2.addImage("alienImg",alienimg)
-//alien2.velocityX=-5
-//alien2.velocityY=5
+alien2.velocityX=-5
+alien2.velocityY=5
 alien2.scale=0.1
 
 
@@ -66,11 +72,18 @@ alien3.velocityY=2
 alien3.scale=0.1
 
 
-alien=createSprite(displayWidth,170)
+alien=createSprite(displayWidth,140)
 alien.addImage("alienImg",alienimg)
 alien.velocityX=-3
 alien.velocityY=3
 alien.scale=0.1
+
+
+alien5=createSprite(displayWidth,100)
+alien3.addImage("alienImg",alienimg)
+alien3.velocityX=-2
+alien3.velocityY=2
+alien3.scale=0.1
 
 
 
@@ -83,28 +96,34 @@ background(bedroom)
 textSize(40)
 fill ("white")
 
-text("little tom is sleeping  , he is more intrested in spaceships,space , \n aliens and that night he got a dream in which he was landing on\n mars and he could clearly see the path from mars to earth but he cant reach \nearth because there are several\n aliens roaming on that path . The aliens want the boy to stay in mars \nitself they dont want to send him to earth ",30,50)
+text("Little Tom is sleeping  , he is more intrested in spaceships,space , \n aliens and that night he got a dream in which he was landing on\n Mars and he could clearly see the path from mars to earth but he cant reach \near Earth because there are several\n aliens roaming on that path . The aliens want the boy to stay in Mars \n itself they dont want to send him to Earth ",30,50)
 fill ("black")
 text("press space key to start the game",400,400)
 
 alien3.bounceOff(ground1)
 alien2.bounceOff(ground1)
 alien1.bounceOff(ground1)
-alien.bounceOff(ground1)
+alien4.bounceOff(ground1)
+alien5.bounceOff(ground1)
 alien.bounceOff(ground)
 alien3.bounceOff(ground)
 alien2.bounceOff(ground)
 alien1.bounceOff(ground)
+alien4.bounceOff(ground)
+alien5.bounceOff(ground)
 alien3.bounceOff(ground2)
 alien2.bounceOff(ground2)
 alien1.bounceOff(ground2)
 alien.bounceOff(ground2)
+alien4.bounceOff(ground2)
+alien5.bounceOff(ground2)
 
 boy.collide(ground)
 boy.collide(ground1)
 
+
 if(gamestate===2){
-//background(bg)
+background(bg)
 background.visible=false
 //backg.velocityX=1
 
@@ -118,7 +137,7 @@ earth.visible=true
 //backg.visible=true
 
 boy.visible=true
-text("distance Tom needed to reach Earth"+distance,boy.x,boy.y)
+text("distance Tom needed to cover  :"+distance,boy.x,boy.y)
 
 if(keyDown(UP_ARROW)){
     boy.y+=-2
@@ -130,7 +149,7 @@ if(keyDown(LEFT_ARROW)){
     boy.x+=-2
 }
 if(keyDown(RIGHT_ARROW)){
-    boy.x+=2
+    boy.x+=3
 }
 if(boy.x<0){
 boy.x=0
@@ -139,8 +158,17 @@ if(boy.isTouching(alien)||boy.isTouching(alien1)||boy.isTouching(alien2)||boy.is
     boy.x=0
     boy.y=displayHeight/3
 }
-
+if(boy.x>100){
+    distance=distance-100
 }
+if(boy.x>200){
+    distance=distance-100
+}
+if(boy.isTouching(earthimg)){
+    distance=distance-4000
+}
+}
+
 
 
 
@@ -162,6 +190,11 @@ if(keyCode === 32){
 
 
 }
+}
+if(boy.isTouching(earth)){
+    text("hurray we reached Earth")
+   
+
 }
 
 
