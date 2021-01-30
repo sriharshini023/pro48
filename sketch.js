@@ -42,9 +42,9 @@ earth=createSprite(displayWidth-10,displayHeight/2)
 earth.addImage("earthimg",earthimg)
 earth.visible=false
 earth.scale=0.5
-/*ground.visible=false
+ground.visible=false
 ground1.visible=false
-ground2.visible=false*/
+ground2.visible=false
 
  alien6=new alien(displayWidth,140)  
    alien6.move(-1,2)
@@ -175,10 +175,10 @@ if(keyDown(RIGHT_ARROW)){
 if(boy.x<0){
 boy.x=0
 }
-/*f(boy.isTouching(alien)||boy.isTouching(alien1)||boy.isTouching(alien2)||boy.isTouching(alien3)){
+if(boy.isTouching(alien)||boy.isTouching(alien1)||boy.isTouching(alien2)||boy.isTouching(alien3)){
     boy.x=0
 boy.y=displayHeight/3
-}*/
+}
 
 
 }
